@@ -918,6 +918,21 @@ unsigned long int __stdcall ClientThread(void *parameter)
 
 				printf(HtmlIndexHeader, HtmlIndexSize);
 			}
+			else if (strstr(buffer, "OPTIONS ") != 0)
+			{
+				const char* optionsResponse =
+					"HTTP/1.1 204 No Content\r\n"
+					"Access-Control-Allow-Origin: *\r\n"
+					"Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n"
+					"Access-Control-Allow-Headers: Content-Type\r\n"
+					"Access-Control-Max-Age: 86400\r\n"
+					"Content-Length: 0\r\n"
+					"\r\n";
+
+				strcpy(buffer, optionsResponse);
+				size = strlen(buffer);
+			}
+
 			else
 			{
 				sprintf(buffer, HtmlNotFoundHeader, HtmlNotFoundSize);
