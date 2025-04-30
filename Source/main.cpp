@@ -122,6 +122,7 @@ const char JsonHeader[] =
 "Content-Size: %d\r\n"
 "Connection: close\r\n"
 "Access-Control-Allow-Origin: *\r\n"
+"Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS\r\n"
 "\r\n";
 
 const char HtmlIndexHeader[] =
